@@ -1,0 +1,15 @@
+.form-container {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.register-form {
+  border: 1px solid gray;
+  padding: 30px;
+}
+.login-register {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
