@@ -13,7 +13,7 @@ const Home = () => {
   const getUserData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/api/user/getAllDoctors",
+        "http://localhost:8080/api/medicos/getAllDoctors",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -34,7 +34,7 @@ const Home = () => {
   }, []);
   return (
     <Layout>
-      <h1 className="text-center">Home</h1>
+      <h1 className="text-center pt-3">Agenda médica</h1>
       <Row>
         {doctors &&
           doctors.map((doctor) => {

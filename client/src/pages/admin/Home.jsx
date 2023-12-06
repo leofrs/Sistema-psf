@@ -13,7 +13,7 @@ const Home = () => {
   const getUserData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/api/user/getAllDoctors",
+        "http://localhost:8080/api/medicos/getAllDoctors",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -74,9 +74,15 @@ const Layout = ({ children }) => {
       icon: "fa-solid fa-list",
     },
     {
-      id: 2,
+      id: 3,
       name: "Usuarios",
       path: "/admin/users",
+      icon: "fa-solid fa-list",
+    },
+    {
+      id: 4,
+      name: "Cadastro Médicos",
+      path: "/admin/medicos",
       icon: "fa-solid fa-list",
     },
     /* {

@@ -20,6 +20,8 @@ import Profile from "../pages/doctor/Profile";
 
 import Booking from "../pages/Booking";
 
+import RegisterDoctor from "../pages/admin/RegisterDoctor";
+
 import HomeAdmin from "../pages/admin/Home";
 import HomeDoctor from "../pages/doctor/Home";
 import HomeUser from "../pages/user/Home";
@@ -67,6 +69,14 @@ const RoutesPage = () => {
             element={
               <ProtectedRouter>
                 <AdminPageUsers />
+              </ProtectedRouter>
+            }
+          />
+          <Route
+            path="/admin/medicos"
+            element={
+              <ProtectedRouter>
+                <RegisterDoctor />
               </ProtectedRouter>
             }
           />
