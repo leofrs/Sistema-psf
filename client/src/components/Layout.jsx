@@ -37,6 +37,12 @@ const Layout = ({ children }) => {
       path: "/apply-doctor",
       icon: "fa-solid fa-list",
     },
+    {
+      id: 4,
+      name: "Historico Médico ",
+      path: "/historico-medico",
+      icon: "fa-solid fa-list",
+    },
     /* {
       id: 4,
       name: "Perfil",

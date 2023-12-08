@@ -43,14 +43,39 @@ const Register = () => {
           className="register-form"
         >
           <h3>Cadastro</h3>
-          <Form.Item label="Name" name="name">
-            <Input type="text" required />
+          <Form.Item label="Nome" name="name" rules={[{ required: true }]}>
+            <Input type="text" required placeholder="Nome" />
           </Form.Item>
-          <Form.Item label="Email" name="email">
-            <Input type="text" required />
+          <Form.Item label="Email" name="email" rules={[{ required: true }]}>
+            <Input type="text" required placeholder="Email" />
           </Form.Item>
-          <Form.Item label="Password" name="password">
-            <Input type="password" required />
+          <Form.Item label="Senha" name="password" rules={[{ required: true }]}>
+            <Input
+              type="password"
+              required
+              minLength={6}
+              pattern="^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$"
+              placeholder="Senha"
+            />
+          </Form.Item>
+          <Form.Item
+            label="Confirmar Senha"
+            name="confirmPassword" // Nome diferente para a confirmação da senha
+            dependencies={["password"]}
+            hasFeedback
+            rules={[
+              { required: true, message: "Por favor, confirme sua senha!" },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue("password") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error("As senhas não coincidem"));
+                },
+              }),
+            ]}
+          >
+            <Input type="password" required placeholder="Confirmar senha" />
           </Form.Item>
           <Link to="/login">
             <p>Já tem uma conta? Faça o login</p>

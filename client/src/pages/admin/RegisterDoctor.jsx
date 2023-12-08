@@ -23,7 +23,7 @@ const RegisterDoctor = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "http://localhost:8080/api/medicos/apply-medico",
+        "http://localhost:8080/api/medicos/register-doctor",
         {
           ...value,
           userId: user._id,

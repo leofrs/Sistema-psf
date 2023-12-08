@@ -1,18 +1,16 @@
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 
-import { Form, Row, Col, Input, TimePicker } from "antd";
+import { Form, Row, Col, Input } from "antd";
 
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import { showLoading, hideLoading } from "../../redux/features/alertSlice";
 
 import { message } from "antd";
 
 import { useNavigate } from "react-router-dom";
-
-import moment from "moment";
 
 const ApplyDoctor = () => {
   const { user } = useSelector((state) => state.user);
@@ -23,14 +21,10 @@ const ApplyDoctor = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "http://localhost:8080/api/user/apply-doctor",
+        "http://localhost:8080/api/user/marcar-consulta",
         {
           ...value,
           userId: user._id,
-          timings: [
-            moment(value.timings[0], "HH:mm").format("HH:mm"),
-            moment(value.timings[1], "HH:mm").format("HH:mm"),
-          ],
         },
         {
           headers: {
@@ -65,7 +59,7 @@ const ApplyDoctor = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="Nome" />
+              <Input type="text" placeholder="*Nome" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -75,7 +69,7 @@ const ApplyDoctor = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="Sobrenome" />
+              <Input type="text" placeholder="*Sobrenome" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -85,17 +79,7 @@ const ApplyDoctor = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="Contato" />
-            </Form.Item>
-          </Col>
-          <Col xs={24} md={24} lg={8}>
-            <Form.Item
-              label="Email"
-              name="email"
-              required
-              rules={[{ required: true }]}
-            >
-              <Input type="email" placeholder="Email" />
+              <Input type="text" placeholder="*Contato" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -105,47 +89,39 @@ const ApplyDoctor = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="Endereço" />
+              <Input type="text" placeholder="*Endereço" />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item
+              label="Cartao-SUS"
+              name="numberSUS"
+              required
+              rules={[{ required: true }]}
+            >
+              <Input type="text" placeholder="* Cartao do SUS" />
+            </Form.Item>
+          </Col>
+          <Col xs={24} md={24} lg={8}>
+            <Form.Item label="Email" name="email">
+              <Input type="email" placeholder="Email" />
             </Form.Item>
           </Col>
         </Row>
-        <h4>Tipo de médico :</h4>
+
+        <h4>Especialidade Médica :</h4>
         <Row gutter={20}>
           <Col xs={24} md={24} lg={8}>
             <Form.Item
-              label="Especialização"
+              label="Especialização Médica"
               name="specialization"
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="Espcialização" />
+              <Input type="text" placeholder="*Especialização Médica" />
             </Form.Item>
           </Col>
-          <Col xs={24} md={24} lg={8}>
-            <Form.Item
-              label="Experiência"
-              name="experience"
-              required
-              rules={[{ required: true }]}
-            >
-              <Input type="text" placeholder="Experiência" />
-            </Form.Item>
-          </Col>
-          <Col xs={24} md={24} lg={8}>
-            <Form.Item
-              label="Preço por consulta"
-              name="pricePerConsultation"
-              required
-              rules={[{ required: true }]}
-            >
-              <Input type="text" placeholder="Preço por consulta" />
-            </Form.Item>
-          </Col>
-          <Col xs={24} md={24} lg={8}>
-            <Form.Item label="Timings" name="timings" required>
-              <TimePicker.RangePicker format="HH:mm" />
-            </Form.Item>
-          </Col>
+
           <Col xs={24} md={24} lg={8}></Col>
           <Col xs={24} md={24} lg={8}>
             <button className="btn btn-primary form-btn" type="submit">

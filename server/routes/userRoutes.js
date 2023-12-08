@@ -18,7 +18,7 @@ routerUser.post("/register", registerController);
 
 routerUser.post("/getUserData", authMiddleware, authController);
 
-routerUser.post("/apply-doctor", authMiddleware, applyDoctorController);
+routerUser.post("/marcar-consulta", authMiddleware, applyDoctorController);
 
 routerUser.post(
   "/get-all-notification",

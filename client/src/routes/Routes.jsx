@@ -10,8 +10,8 @@ import Spinner from "../components/Spinner";
 import ProtectedRouter from "../components/ProtectedRouter";
 import PublicRouter from "../components/PublicRouter";
 
-import ApplyDoctor from "../pages/ApplyDoctor";
-import Notification from "../pages/Notification";
+import ApplyDoctor from "../pages/user/ApplyDoctor";
+import Notification from "../pages/admin/Notification";
 
 import AdminPageDoctors from "../pages/admin/Doctor";
 import AdminPageUsers from "../pages/admin/User";

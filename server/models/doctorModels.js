@@ -19,10 +19,7 @@ const doctorSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: [true, "email é obrigatorio"],
-    },
-    website: {
-      type: String,
+      required: [false, "email não é obrigatorio"],
     },
     address: {
       type: String,
@@ -32,26 +29,18 @@ const doctorSchema = new mongoose.Schema(
       type: String,
       required: [true, "Especialização é obrigatorio"],
     },
-    experience: {
-      type: String,
-      required: [true, "Experiencia é obrigatorio"],
-    },
-    pricePerConsultation: {
+    numberSUS: {
       type: Number,
-      required: [true, "Preço por consulta é obrigatorio"],
+      required: [true, "Número do cartão do SUS é obrigatorio"],
     },
     status: {
       type: String,
       default: "pending",
     },
-    timming: {
-      type: Object,
-      required: [false, "Tempo por consulta é obrigatorio"],
-    },
   },
   { timestamps: true }
 );
 
-const doctorModel = mongoose.model("doctors", doctorSchema);
+const doctorModel = mongoose.model("consultasMarcadas", doctorSchema);
 
 module.exports = doctorModel;

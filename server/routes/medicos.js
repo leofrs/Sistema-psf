@@ -7,7 +7,7 @@ const {
 
 const routerMedico = express.Router();
 
-routerMedico.post("/apply-medico", authMiddleware, applyDoctorController);
-routerMedico.get("/getAllDoctors", authMiddleware, getAllDoctorsController);
+routerMedico.post("/register-doctor", authMiddleware, applyDoctorController);
+routerMedico.get("/getDoctors", authMiddleware, getAllDoctorsController);
 
 module.exports = routerMedico;

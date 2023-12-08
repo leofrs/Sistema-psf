@@ -13,14 +13,13 @@ const Home = () => {
   const getUserData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/api/medicos/getAllDoctors",
+        "http://localhost:8080/api/medicos/getDoctors",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
-      console.log(res.data.data);
       if (res.data.success) {
         setDoctors(res.data.data);
       }
@@ -48,13 +47,10 @@ const Home = () => {
                 }
               >
                 <div className="card-header">
-                  DR.{doctor.firstName} {doctor.lastName}
+                  Dr. {doctor.firstName} {doctor.lastName}
                   <div className="card-body">
                     <p>
                       <b>Especialização</b> {doctor.specialization}
-                    </p>
-                    <p>
-                      <b>Experiência</b> {doctor.experience} anos
                     </p>
                   </div>
                 </div>

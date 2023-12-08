@@ -22,30 +22,23 @@ const getAllDoctorsController = async (req, res) => {
 
 const applyDoctorController = async (req, res) => {
   try {
-    const newDoctor = await medicosModel({ ...req.body, status: "pending" });
+    const { userId } = req; // Certifique-se de que o ID do usuário está disponível
+
+    // Crie uma nova instância do médico e associe ao usuário
+    const newDoctor = new medicosModel({ ...req.body, userId });
     await newDoctor.save();
-    const adminUser = await userModel.findOne({ isAdmin: true });
-    const notifcation = adminUser.notifcation;
-    notifcation.push({
-      type: "apply-doctor-request",
-      message: `${newDoctor.firstName} ${newDoctor.lastName} Sua solicitação doi efetuada com sucesso`,
-      data: {
-        doctorId: newDoctor._id,
-        name: newDoctor.firstName + " " + newDoctor.lastName,
-        onClickPath: "/admin/doctors",
-      },
-    });
-    await userModel.findByIdAndUpdate(adminUser._id, { notifcation });
+
     res.status(201).send({
       success: true,
-      message: "Doctor Account Applied SUccessfully",
+      message: "Médico cadastrado com sucesso",
+      data: newDoctor,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
       error,
-      message: "Error WHile Applying For Doctotr",
+      message: "Erro ao cadastrar médico",
     });
   }
 };

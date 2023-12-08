@@ -1,7 +1,7 @@
-import Layout from "./../components/Layout";
+import Layout from "../../components/Layout";
 import { message, Tabs } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import { showLoading, hideLoading } from "../../redux/features/alertSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 

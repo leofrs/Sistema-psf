@@ -13,14 +13,13 @@ const Home = () => {
   const getUserData = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8080/api/medicos/getAllDoctors",
+        "http://localhost:8080/api/user/getAllDoctors",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
       );
-      console.log(res.data.data);
       if (res.data.success) {
         setDoctors(res.data.data);
       }

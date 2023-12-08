@@ -22,14 +22,13 @@ const Login = () => {
         "http://localhost:8080/api/user/login",
         value
       );
-      window.location.reload();
       dispatch(hideLoading());
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
         message.success("Login efetuado com sucesso");
         navigate("/");
       } else {
-        message.error(res.data.message);
+        message.error("Email ou senha inválidos");
       }
     } catch (error) {
       console.log(error);
@@ -45,10 +44,14 @@ const Login = () => {
           className="register-form"
         >
           <h3>Login</h3>
-          <Form.Item label="Email" name="email">
+          <Form.Item label="Email" name="email" rules={[{ required: true }]}>
             <Input type="text" required />
           </Form.Item>
-          <Form.Item label="Password" name="password">
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true }]}
+          >
             <Input type="password" required />
           </Form.Item>
           <Link to="/register">
