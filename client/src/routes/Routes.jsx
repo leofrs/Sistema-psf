@@ -25,7 +25,7 @@ import RegisterDoctor from "../pages/admin/RegisterDoctor";
 import HomeAdmin from "../pages/admin/Home";
 import HomeDoctor from "../pages/doctor/Home";
 import HomeUser from "../pages/user/Home";
-
+import HistoryDoctor from "../pages/user/HistoryDoctor";
 const RoutesPage = () => {
   const { loading } = useSelector((state) => state.alerts);
   const { user } = useSelector((state) => state.user);
@@ -53,6 +53,14 @@ const RoutesPage = () => {
             element={
               <ProtectedRouter>
                 <ApplyDoctor />
+              </ProtectedRouter>
+            }
+          />
+          <Route
+            path="/history-medical"
+            element={
+              <ProtectedRouter>
+                <HistoryDoctor />
               </ProtectedRouter>
             }
           />

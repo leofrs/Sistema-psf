@@ -52,6 +52,15 @@ const Home = () => {
                     <p>
                       <b>Especialização</b> {doctor.specialization}
                     </p>
+                    <p>
+                      <b>Telefone</b> {doctor.phone}
+                    </p>
+                    <p>
+                      <b>Email</b> {doctor.email}
+                    </p>
+                    <p>
+                      <b>CFM</b> {doctor.cfm}
+                    </p>
                   </div>
                 </div>
               </div>

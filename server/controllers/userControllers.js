@@ -91,7 +91,7 @@ const applyDoctorController = async (req, res) => {
     const notifcation = adminUser.notifcation;
     notifcation.push({
       type: "apply-doctor-request",
-      message: `${newDoctor.firstName} ${newDoctor.lastName} Sua solicitação doi efetuada com sucesso`,
+      message: `${newDoctor.firstName} ${newDoctor.lastName} Deseja marcar uma consulta medica`,
       data: {
         doctorId: newDoctor._id,
         name: newDoctor.firstName + " " + newDoctor.lastName,
@@ -101,14 +101,15 @@ const applyDoctorController = async (req, res) => {
     await userModel.findByIdAndUpdate(adminUser._id, { notifcation });
     res.status(201).send({
       success: true,
-      message: "Doctor Account Applied SUccessfully",
+      message: "Sua consulta médica foi solicitada com sucesso",
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
       error,
-      message: "Error WHile Applying For Doctotr",
+      message:
+        "Um erro foi encontrada ao fazer a solicitação da consulta médica",
     });
   }
 };
@@ -124,13 +125,13 @@ const getAllNotificationController = async (req, res) => {
     const updatedUser = await user.save();
     res.status(200).send({
       success: true,
-      message: "all notification marked as read",
+      message: "Todas as notificações foram marcadas como lidas",
       data: updatedUser,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
-      message: "Error in notification",
+      message: "Error na notificação",
       success: false,
       error,
     });

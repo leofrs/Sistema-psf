@@ -48,13 +48,13 @@ const getAllDoctorController = async (req, res) => {
 
 const changeAccountStatusController = async (req, res) => {
   try {
-    const { doctorId, status } = req.body;
+    const { doctorId, status, specialization } = req.body;
     const doctor = await doctorModel.findByIdAndUpdate(doctorId, { status });
     const user = await userModel.findOne({ _id: doctor.userId });
     const notification = user.notifcation;
     notification.push({
       type: "doctor-account-request-update",
-      message: `Your Dctor Account Request Has ${status}`,
+      message: `Sua consulta com o medico ${specialization} foi ${status}`,
       onClickPath: "/notification",
     });
     user.isDoctor = status === "aprroved" ? true : false;

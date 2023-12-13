@@ -25,12 +25,6 @@ const Layout = ({ children }) => {
       path: "/",
       icon: "fa-solid fa-house",
     },
-    /*{
-      id: 2,
-      name: "Consultas Marcadas",
-      path: "/doctor/book-appointment/:doctorId",
-      icon: "fa-solid fa-list",
-    },*/
     {
       id: 2,
       name: "Marcar Consultas ",
@@ -38,17 +32,11 @@ const Layout = ({ children }) => {
       icon: "fa-solid fa-list",
     },
     {
-      id: 4,
+      id: 3,
       name: "Historico Médico ",
-      path: "/historico-medico",
+      path: "/history-medical",
       icon: "fa-solid fa-list",
     },
-    /* {
-      id: 4,
-      name: "Perfil",
-      path: `/doctor/profile/${user?._id}`,
-      icon: "fa-solid fa-user",
-    },*/
   ];
 
   const doctorMenu = [

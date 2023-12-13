@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
 
+const apiUrl = import.meta.env.VITE_REACT_APP_REGISTER;
+
 const Register = () => {
   const navigate = useNavigate();
 
@@ -18,10 +20,7 @@ const Register = () => {
   const onFinishHandler = async (value) => {
     try {
       dispatch(showLoading());
-      const res = await axios.post(
-        "http://localhost:8080/api/user/register",
-        value
-      );
+      const res = await axios.post(apiUrl, value);
       dispatch(hideLoading());
       if (res.status === 201) {
         message.success("Cadastro efetuado com sucesso");
