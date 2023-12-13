@@ -37,6 +37,12 @@ const Layout = ({ children }) => {
       path: "/history-medical",
       icon: "fa-solid fa-list",
     },
+    {
+      id: 3,
+      name: "Notificação",
+      path: "/get-all-notification",
+      icon: "fa-solid fa-list",
+    },
   ];
 
   const doctorMenu = [
@@ -77,6 +83,12 @@ const Layout = ({ children }) => {
       id: 4,
       name: "Cadastro Médicos",
       path: "/admin/medicos",
+      icon: "fa-solid fa-list",
+    },
+    {
+      id: 4,
+      name: "Notificação",
+      path: "/admin/get-all-notification",
       icon: "fa-solid fa-list",
     },
     /* {

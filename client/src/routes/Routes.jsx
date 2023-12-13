@@ -11,7 +11,7 @@ import ProtectedRouter from "../components/ProtectedRouter";
 import PublicRouter from "../components/PublicRouter";
 
 import ApplyDoctor from "../pages/user/ApplyDoctor";
-import Notification from "../pages/admin/Notification";
+import NotificationAdmin from "../pages/admin/Notification";
 
 import AdminPageDoctors from "../pages/admin/Doctor";
 import AdminPageUsers from "../pages/admin/User";
@@ -26,6 +26,8 @@ import HomeAdmin from "../pages/admin/Home";
 import HomeDoctor from "../pages/doctor/Home";
 import HomeUser from "../pages/user/Home";
 import HistoryDoctor from "../pages/user/HistoryDoctor";
+import NotificationUser from "../pages/user/Notification";
+
 const RoutesPage = () => {
   const { loading } = useSelector((state) => state.alerts);
   const { user } = useSelector((state) => state.user);
@@ -65,6 +67,14 @@ const RoutesPage = () => {
             }
           />
           <Route
+            path="/get-all-notification"
+            element={
+              <ProtectedRouter>
+                <NotificationUser />
+              </ProtectedRouter>
+            }
+          />
+          <Route
             path="/admin/doctors"
             element={
               <ProtectedRouter>
@@ -89,6 +99,14 @@ const RoutesPage = () => {
             }
           />
           <Route
+            path="/admin/get-all-notification"
+            element={
+              <ProtectedRouter>
+                <NotificationAdmin />
+              </ProtectedRouter>
+            }
+          />
+          <Route
             path="/doctor/profile/:id"
             element={
               <ProtectedRouter>
@@ -101,14 +119,6 @@ const RoutesPage = () => {
             element={
               <ProtectedRouter>
                 <Booking />
-              </ProtectedRouter>
-            }
-          />
-          <Route
-            path="/get-all-notification"
-            element={
-              <ProtectedRouter>
-                <Notification />
               </ProtectedRouter>
             }
           />
