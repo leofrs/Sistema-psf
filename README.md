@@ -1,22 +1,41 @@
 <h1 align='center'>
-    <img src='./src/assets/vestuario.png'>
-    <p>As roupas da coroa feitas para você</p>
+    <img src='client/public/user.png'>
+    <img src='client/public/admin.png'>
+    <p>A solução em sistema que você precisa</p>
 </h1>
 
 ## 📕 Sobre
 
-**The clothing** foi desenvolvido para melhorar e entender como utilizar o **useRef** - para evitar a re-render dos formuláriose e ter com isso um melhor desempenho, **custom hooks** - utilizado para separar o que é código puramente javascript do que é JSX e com isso melhorar a organização do código, **Redux Toolkit** - utilizado para o gerenciamento do carrinho.
+**The cosulting clinical** está sendo desenvolvido ser uma aplicação Full Stack e o intuito com essa aplicação é melhor o meu entendimento sobre **regras de negocio**, como realizar de forma **mais eficiente** a integração entre front, back e DB. Essa plicação também está servindo para **melhorar** ainda mais os meus **conhecimentos em back-end** e integração com BD. Espero que ajude você a também conseguir ter o entendimento que eu esto tendo a respeito do desenvolvimento de software.
 
-## 🛠️ Recursos Utilizados
+## 🛠️ Recursos Utilizados para desenvolver a aplicação Full Stack
+
+### Client
 
 - React;
-- [Custom Hooks](https://www.w3schools.com/react/react_customhooks.asp);
-- Hooks (useState, [UseRef](https://www.w3schools.com/react/react_useref.asp));
-- react-router-dom;
-- react-icons;
-- Sass;
-- Firebase;
-- Redux Toolkit;
+- antd;
+- axios;
+- react-redux e redux/toolkit;
+- moment;
+- react-roter-dom;
+- react-spinners;
+
+### Server
+
+- Node;
+- bcrypt;
+- colors;
+- cors;
+- dotenv;
+- express;
+- jsonWebToken;
+- mongoose;
+- morgan;
+- nodemon;
+
+## Banco de dados
+
+- MongoDB
 
 ## 👨🏾‍💻 Como rodar o projeto na sua máquina
 
@@ -29,21 +48,13 @@ $ git clone git@github.com:leofrs/website-vestuario.git
 Após ter feito o clone, instale as dependências necessárias para rodar o projeto. Com a pasta do projeto aberta no terminal, execute os seguintes comandos um por vêz
 
 ```bash
-# Se você utiliza npm
+# Se você utiliza npm, abra a pasta client no terminal e em outro terminal abra a pasta server e insira o seguinte comendo em cada terminal
 $ npm i
-$ npm i react-router-dom
-$ npm i react-icons
-$ npm i firebase
-$ npm i sass
 ```
 
 ```bash
-# Se você utiliza yarn
+# Se você utiliza yarn, abra a pasta client no terminal e em outro terminal abra a pasta server e insira o seguinte comendo em cada terminal
 $ yarn i
-$ yarn add react-router-dom
-$ yarn add react-icons
-$ yarn add firebase
-$ yarn add sass
 ```
 
 obs: Como este projeto foi criado com o vite, execute o comando **npm run dev** para rodar em sua máquina.
